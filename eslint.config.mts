@@ -68,11 +68,11 @@ export default [
         "error",
         {
           groups: [
+            ["^\\u0000"],
             ["^node:"],
             ["^@?\\w"],
             ["^@/"],
             ["^\\."],
-            ["^\\u0000"],
           ],
         },
       ],
@@ -153,6 +153,13 @@ export default [
         { selector: "memberLike", modifiers: ["protected"], format: ["camelCase"], leadingUnderscore: "require" },
         { selector: "memberLike", format: ["camelCase"], leadingUnderscore: "forbid" },
       ],
+
+      // ──────────────────────────────────
+      // 9. Restricted imports
+      // ──────────────────────────────────
+      "no-restricted-imports": ["error", {
+          patterns: ["**/environment.development*"]
+      }],
     },
   },
 
