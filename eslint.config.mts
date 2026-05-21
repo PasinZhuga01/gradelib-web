@@ -10,6 +10,7 @@ import prettierConfig from "eslint-config-prettier";
 import pluginUnicorn from "eslint-plugin-unicorn";
 import pluginSonarjs from "eslint-plugin-sonarjs";
 import pluginSecurity from "eslint-plugin-security";
+import globals from "globals";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -21,9 +22,12 @@ export default [
     languageOptions: {
       parser: parserTs,
       parserOptions: {
-        project: "./tsconfig.json",
+        project: "./tsconfig.app.json",
         tsconfigRootDir: __dirname,
       },
+      globals: {
+        ...globals.browser
+      }
     },
     plugins: {
       "@typescript-eslint": pluginTs,

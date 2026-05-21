@@ -5,8 +5,8 @@ import { environment } from '@environments';
   selector: 'app-root',
   imports: [],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
 })
 export class App {
-  protected title = environment.apiUrl;
+  protected _title = environment.apiUrl;
 }
