@@ -1,59 +1,86 @@
-# GradelibWeb
+# gradelib-web
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.2.
+Angular client for **GradeLib** - an electronic journal and learning management system for educational institutions.
 
-## Development server
+---
 
-To start a local development server, run:
+## Prerequisites
 
-```bash
-ng serve
-```
+- [Node.js](https://nodejs.org/) v20+
+- [npm](https://www.npmjs.com/) v10+
+- [Angular CLI](https://angular.dev/tools/cli) v20+
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+## Environment configuration
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Angular does not use `.env` files. Configuration is managed through TypeScript environment files located in `src/environments/`:
 
-```bash
-ng generate component component-name
-```
+| File | Used when |
+|------|-----------|
+| `environment.ts` | Production build (`ng build`) |
+| `environment.development.ts` | Development server (`ng serve`) |
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Angular CLI automatically swaps the file based on the active build configuration - no manual action needed.
 
-```bash
-ng generate --help
-```
+### Variables
 
-## Building
+| Variable | Description | Development value |
+|----------|-------------|-------------------|
+| `apiUrl` | Base URL of the gradelib-api REST API | `http://localhost:3000` |
 
-To build the project run:
+---
 
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## Installation
 
 ```bash
-ng test
+npm install
 ```
 
-## Running end-to-end tests
+---
 
-For end-to-end (e2e) testing, run:
+## Starting the development server
 
 ```bash
-ng e2e
+npm start
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+The application will be available at `http://localhost:4200` and will reload automatically on file changes.
 
-## Additional Resources
+> Make sure **gradelib-api** is running before starting the frontend - the dev environment expects the API at `http://localhost:3000`.
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
+
+## Available scripts
+
+| Script | Description |
+|--------|-------------|
+| `npm start` | Start the development server (`ng serve`) |
+| `npm run build` | Build the application for production into `dist/` |
+| `npm run watch` | Build in watch mode with the development configuration |
+| `npm test` | Run unit tests via Karma |
+| `npm run lint` | Run ESLint across `src/` |
+| `npm run format` | Auto-format code with Prettier |
+
+---
+
+## Project structure
+
+```
+src/
+├── app/
+│   ├── app.ts               # Root component
+│   ├── app.config.ts        # Application configuration (providers, etc.)
+│   ├── app.routes.ts        # Top-level routing
+│   ├── app.html             # Root component template
+│   ├── app.css              # Root component styles
+│   ├── common/              # Shared utilities, guards, interceptors
+│   ├── features/            # Feature modules (by domain)
+│   └── shared/              # Reusable UI components and services
+├── environments/
+│   ├── environment.ts           # Production environment config
+│   └── environment.development.ts  # Development environment config
+├── index.html               # Application shell
+├── main.ts                  # Bootstrap entry point
+└── styles.css               # Global styles
+```
