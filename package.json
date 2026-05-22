@@ -8,7 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "format": "prettier --write \"src/**/*.ts\"",
-    "lint": "eslint \"src/**/*.ts\""
+    "lint": "eslint \"src/**/*.ts\"",
+    "api:generate": "openapi-generator-cli generate -i http://localhost:3000/api/docs-json -g typescript-angular -o api --additional-properties=npmName=gradelib-api-client,ngVersion=20.0.0 && cd api && npm install && npm run build && cd dist && npm pack && cd ../.. && npm install ./api/dist/gradelib-api-client-1.0.0.tgz"
   },
   "private": true,
   "dependencies": {
@@ -18,6 +19,7 @@
     "@angular/forms": "^20.0.0",
     "@angular/platform-browser": "^20.0.0",
     "@angular/router": "^20.0.0",
+    "gradelib-api-client": "file:api/dist/gradelib-api-client-1.0.0.tgz",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   },
@@ -26,6 +28,7 @@
     "@angular/cli": "^20.0.2",
     "@angular/compiler-cli": "^20.0.0",
     "@eslint/js": "^10.0.1",
+    "@openapitools/openapi-generator-cli": "^2.34.0",
     "@types/eslint-plugin-security": "^3.0.1",
     "@types/jasmine": "~5.1.0",
     "@types/node": "^25.9.1",

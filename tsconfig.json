@@ -36,9 +36,7 @@
 
       "@common/*": ["./src/common/*"],
       "@features/*": ["./src/features/*"],
-      "@shared/*": ["./src/shared/*"],
-
-      "@api/*": ["./api/*"]
+      "@shared/*": ["./src/shared/*"]
     }
   },
   "angularCompilerOptions": {
