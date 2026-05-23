@@ -1,3 +1,5 @@
+import { ApiModule, Configuration } from 'gradelib-api-client';
+
 import { provideHttpClient } from '@angular/common/http';
 import {
   ApplicationConfig,
@@ -6,8 +8,8 @@ import {
   provideZonelessChangeDetection,
 } from '@angular/core';
 import { provideRouter } from '@angular/router';
+
 import { environment } from '@environments';
-import { ApiModule, Configuration } from 'gradelib-api-client';
 
 import { routes } from './app.routes';
 

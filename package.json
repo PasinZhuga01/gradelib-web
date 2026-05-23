@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "format": "prettier --write \"src/**/*.ts\"",
+    "format": "eslint \"src/**/*.ts\" --fix --config eslint.format.config.mts && prettier --write \"src/**/*.ts\"",    
     "lint": "eslint \"src/**/*.ts\"",
     "api:generate": "openapi-generator-cli generate -i http://localhost:3000/api/docs-json -g typescript-angular -o api --additional-properties=npmName=gradelib-api-client,ngVersion=20.0.0 && cd api && npm install && npm run build && cd dist && npm pack && cd ../.. && npm install ./api/dist/gradelib-api-client-1.0.0.tgz"
   },

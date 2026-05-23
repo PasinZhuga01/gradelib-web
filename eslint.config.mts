@@ -66,24 +66,7 @@ export default [
       "@typescript-eslint/prefer-optional-chain": "warn",
 
       // ──────────────────────────────────
-      // 2. Import order
-      // ──────────────────────────────────
-      "simple-import-sort/imports": [
-        "error",
-        {
-          groups: [
-            ["^\\u0000"],
-            ["^node:"],
-            ["^@?\\w"],
-            ["^@/"],
-            ["^\\."],
-          ],
-        },
-      ],
-      "simple-import-sort/exports": "error",
-
-      // ──────────────────────────────────
-      // 3. Class member order (as written)
+      // 2. Class member order (as written)
       // ──────────────────────────────────
       "@typescript-eslint/member-ordering": [
         "error",
@@ -111,7 +94,7 @@ export default [
       ],
 
       // ──────────────────────────────────
-      // 4. General style rules
+      // 3. General style rules
       // ──────────────────────────────────
       "no-console": "warn",
       "no-debugger": "error",
@@ -120,7 +103,7 @@ export default [
       "@typescript-eslint/array-type": ["error", { default: "array-simple" }],
 
       // ──────────────────────────────────
-      // 5. Unicorn – modern JS/TS best practices
+      // 4. Unicorn – modern JS/TS best practices
       // ──────────────────────────────────
       "unicorn/prefer-node-protocol": "error",
       "unicorn/throw-new-error": "error",
@@ -128,17 +111,17 @@ export default [
       "unicorn/no-array-for-each": "warn",
 
       // ──────────────────────────────────
-      // 6. SonarJS – bug detection & code smells
+      // 5. SonarJS – bug detection & code smells
       // ──────────────────────────────────
       "sonarjs/cognitive-complexity": ["warn", 15],
 
       // ──────────────────────────────────
-      // 7. Security – detect potential vulnerabilities
+      // 6. Security – detect potential vulnerabilities
       // ──────────────────────────────────
       "security/detect-object-injection": "warn",
 
       // ──────────────────────────────────
-      // 8. Naming convention
+      // 7. Naming convention
       // ──────────────────────────────────
       "@typescript-eslint/naming-convention": [
         "error",
@@ -159,7 +142,7 @@ export default [
       ],
 
       // ──────────────────────────────────
-      // 9. Restricted imports
+      // 8. Restricted imports
       // ──────────────────────────────────
       "no-restricted-imports": ["error", {
           patterns: ["**/environment.development*"]
